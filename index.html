@@ -3,136 +3,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Orca Studios - independent mobile game studio. Makers of PureWord: Daily Guess, Sugar Crush: Sweet Saga Candy and Emojhang: Emoji Tile Puzzle.">
-<title>Orca Studios</title>
+<meta name="description" content="Orca Studios - independent mobile studio from India. Makers of PureWord: Daily Guess, Emojhang: Mahjong Emoji Tiles, Sugar Crush: Sweet Saga Candy and Aero Scan: PDF Scanner and Editor.">
+<meta name="theme-color" content="#0b1424">
+<title>Orca Studios - Crafting engaging digital adventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --navy-900: #070d18;
+    --navy-800: #0b1424;
+    --navy-700: #111d33;
+    --navy-600: #172743;
+    --line: rgba(212, 168, 75, 0.18);
+    --gold: #d4a84b;
+    --gold-light: #f1d48a;
+    --ink: #eef2f8;
+    --muted: #97a3ba;
+    --green: #34c26b;
+    --amber: #f2b441;
+    --teal: #4fd1c5;
+    --radius: 20px;
+  }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #14161c;
-    color: #fff;
     margin: 0;
-    padding: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--navy-900);
+    line-height: 1.6;
   }
-  .hero {
-    text-align: center;
-    padding: 84px 24px 56px;
-    background: radial-gradient(ellipse at top, #1d2230 0%, #14161c 65%);
+  h1, h2, h3 { font-family: "Montserrat", "Inter", sans-serif; margin: 0; }
+  a { color: var(--gold-light); }
+
+  /* Hexagon texture (inline SVG pattern) */
+  .hex {
+    background-color: var(--navy-900);
+    background-image:
+      radial-gradient(ellipse 70% 55% at 50% 0%, rgba(212,168,75,0.16), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='96' viewBox='0 0 84 96'%3E%3Cpath d='M42 2 80 24v44L42 90 4 68V24z' fill='none' stroke='%23d4a84b' stroke-opacity='0.10' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-size: auto, 84px 96px;
   }
-  .logo {
-    width: 84px; height: 84px; margin: 0 auto 24px;
-    border-radius: 22px;
-    background: linear-gradient(135deg, #29B6F6, #0b6bcb);
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px;
+    background: rgba(7, 13, 24, 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: 2px; font-size: 0.95em; }
+  .brand svg { width: 30px; height: 30px; }
+  nav .links a { color: var(--muted); text-decoration: none; margin-left: 22px; font-size: 0.92em; font-weight: 500; }
+  nav .links a:hover { color: var(--gold-light); }
+
+  /* Hero */
+  .hero { text-align: center; padding: 96px 24px 72px; }
+  .mark {
+    width: 168px; height: 168px; margin: 0 auto 28px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 46px;
+    background: radial-gradient(circle at 35% 30%, #1c2c4a, var(--navy-800) 70%);
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 10px rgba(212,168,75,0.08), 0 24px 60px rgba(0,0,0,0.5);
   }
-  h1 {
-    margin: 0 0 10px;
-    font-size: clamp(2em, 6vw, 3em);
-    letter-spacing: 2px;
+  .mark svg { width: 112px; height: 112px; }
+  .hero h1 {
+    font-size: clamp(2.4em, 7vw, 4.2em);
+    font-weight: 900; letter-spacing: 6px; line-height: 1.05;
+    background: linear-gradient(180deg, #fff3cf 0%, var(--gold) 55%, #a97f2c 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .tagline { color: #8b93a7; letter-spacing: 5px; font-size: 0.85em; text-transform: uppercase; }
-  .section {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 48px 24px 24px;
-  }
-  .section > h2 {
-    font-size: 1.1em; letter-spacing: 3px; color: #8b93a7;
-    text-transform: uppercase; margin: 0 0 24px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  .card {
-    background: #1c1f28;
-    border: 1px solid #2a2e3a;
-    border-radius: 16px;
-    padding: 26px;
-    display: flex;
-    flex-direction: column;
-  }
-  .badge {
-    width: 52px; height: 52px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; font-weight: 800; margin-bottom: 16px;
-  }
-  .card h3 { margin: 0 0 8px; font-size: 1.25em; }
-  .card p { margin: 0 0 20px; color: #aab1c2; font-size: 0.95em; line-height: 1.55; flex: 1; }
-  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .hero .tag { margin-top: 14px; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; font-size: 0.82em; font-weight: 600; }
+  .hero p.lead { max-width: 640px; margin: 22px auto 0; color: #c3cbdb; font-size: 1.05em; }
+  .cta { margin-top: 34px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .btn {
-    display: inline-block; text-decoration: none; font-weight: 700;
-    padding: 10px 20px; border-radius: 9px; font-size: 0.9em; letter-spacing: 0.4px;
-    color: #fff; background: #2ea84f;
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600;
+    padding: 12px 22px; border-radius: 12px; font-size: 0.95em; transition: transform .15s ease, box-shadow .15s ease;
   }
-  .soon {
-    display: inline-block; padding: 10px 20px; border-radius: 9px;
-    font-size: 0.9em; font-weight: 700; letter-spacing: 0.4px;
-    color: #8b93a7; background: #242836; cursor: default;
+  .btn:hover { transform: translateY(-1px); }
+  .btn.gold { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: #1a1408; box-shadow: 0 10px 30px rgba(212,168,75,0.25); }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: rgba(255,255,255,0.03); }
+  .btn.play { background: #1f2a44; color: #fff; border: 1px solid #2c3a5c; }
+  .btn.play:hover { border-color: var(--gold); }
+
+  /* Stats */
+  .stats { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; padding: 0 24px 40px; }
+  .stat { min-width: 150px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(17,29,51,0.6); text-align: center; }
+  .stat b { display: block; font-family: "Montserrat", sans-serif; font-size: 1.6em; color: var(--gold-light); }
+  .stat span { color: var(--muted); font-size: 0.85em; }
+
+  /* Sections */
+  .section { max-width: 1040px; margin: 0 auto; padding: 56px 24px 24px; }
+  .section > h2 { font-size: 0.95em; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .section > p.sub { color: var(--muted); margin: 0 0 28px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+  .card {
+    position: relative; display: flex; flex-direction: column;
+    background: linear-gradient(180deg, var(--navy-700), var(--navy-800));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  .plink { color: #7cc4ff; text-decoration: none; font-size: 0.88em; }
-  .plink:hover { text-decoration: underline; }
-  footer {
-    text-align: center; color: #5b6172; font-size: 0.82em;
-    padding: 48px 24px 40px; line-height: 1.7;
+  .card:hover { transform: translateY(-3px); border-color: rgba(212,168,75,0.45); box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+  .card .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .icon {
+    width: 62px; height: 62px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+    font-family: "Montserrat", sans-serif; font-weight: 900; font-size: 1.5em; color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
   }
-  footer a { color: #8b93a7; }
+  .pill { font-size: 0.72em; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; border: 1px solid transparent; }
+  .pill.live { color: var(--green); border-color: rgba(52,194,107,0.4); background: rgba(52,194,107,0.1); }
+  .pill.review { color: var(--amber); border-color: rgba(242,180,65,0.4); background: rgba(242,180,65,0.1); }
+  .pill.testing { color: var(--teal); border-color: rgba(79,209,197,0.4); background: rgba(79,209,197,0.1); }
+  .card h3 { font-size: 1.15em; font-weight: 800; margin-bottom: 8px; }
+  .card p { margin: 0 0 20px; color: var(--muted); font-size: 0.95em; flex: 1; }
+  .card .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .card .row .btn { padding: 10px 16px; font-size: 0.88em; }
+  .plink { color: var(--muted); text-decoration: none; font-size: 0.86em; }
+  .plink:hover { color: var(--gold-light); text-decoration: underline; }
+  .soon { display: inline-flex; padding: 10px 16px; border-radius: 12px; font-size: 0.88em; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px dashed var(--line); }
+
+  /* About */
+  .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .value { border: 1px solid var(--line); border-radius: 16px; padding: 20px; background: rgba(17,29,51,0.5); }
+  .value b { display: block; font-family: "Montserrat", sans-serif; color: var(--gold-light); margin-bottom: 6px; }
+  .value span { color: var(--muted); font-size: 0.92em; }
+
+  footer { text-align: center; color: #66708a; font-size: 0.85em; padding: 56px 24px 40px; line-height: 1.9; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+  @media (max-width: 560px) { nav .links a { margin-left: 14px; font-size: 0.85em; } .hero { padding-top: 64px; } }
 </style>
 </head>
-<body>
+<body class="hex">
 
-<div class="hero">
-  <div class="logo">&#128011;</div>
+<nav>
+  <a class="brand" href="#top">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="#d4a84b" stroke-width="3"/><path d="M14 40c6-10 14-15 24-15 8 0 12 4 14 9-4-2-8-2-11 1-3 3-3 8-1 12-9 1-19-2-26-7z" fill="#f1d48a"/><path d="M31 24c3-6 8-9 13-9-2 4-3 7-3 10z" fill="#f1d48a"/></svg>
+    ORCA STUDIOS
+  </a>
+  <div class="links"><a href="#apps">Apps</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <path d="M22 76c10-20 26-30 46-30 14 0 24 6 30 16-8-3-16-2-22 3-6 6-6 16-1 24-18 2-38-2-53-13z" fill="#ffffff"/>
+      <path d="M52 44c5-12 15-19 27-19-4 7-6 13-6 20z" fill="#ffffff"/>
+      <path d="M40 66c8-6 18-8 28-5-8 1-14 5-18 11z" fill="#0b1424"/>
+      <path d="M18 92c14 8 34 10 56 6-20 12-40 12-56-6z" fill="#4fd1c5" opacity="0.9"/>
+    </svg>
+  </div>
   <h1>ORCA STUDIOS</h1>
-  <div class="tagline">Independent mobile games</div>
+  <div class="tag">Crafting engaging digital adventures</div>
+  <p class="lead">An independent mobile studio from India making free, friendly games and everyday tools for Android. Every app is designed to be simple, fast and respectful of your privacy.</p>
+  <div class="cta">
+    <a class="btn gold" href="#apps">Explore our apps</a>
+    <a class="btn ghost" href="mailto:kaushikmouryaprof@gmail.com">Get in touch</a>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><b>4</b><span>Apps</span></div>
+  <div class="stat"><b>2</b><span>Live on Google Play</span></div>
+  <div class="stat"><b>100%</b><span>Free to use</span></div>
 </div>
 
-<div class="section">
-  <h2>Our games</h2>
+<section class="section" id="apps">
+  <h2>Our apps</h2>
+  <p class="sub">Games to unwind with and tools that get things done.</p>
   <div class="grid">
 
-    <div class="card">
-      <div class="badge" style="background:#1e3323; color:#4CAF50;">P</div>
+    <article class="card">
+      <div class="top">
+        <div class="icon" style="background:linear-gradient(135deg,#2e7d4f,#4CAF50);">P</div>
+        <span class="pill live">Live</span>
+      </div>
       <h3>PureWord: Daily Guess</h3>
-      <p>Crack the hidden word in six tries. A fresh daily puzzle, endless
-      zen mode with rising difficulty, streaks, statistics and shareable
-      results.</p>
+      <p>Crack the hidden word in six tries. A fresh daily puzzle, an endless zen mode with rising difficulty, streaks, statistics and shareable results.</p>
       <div class="row">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.orcastudios.pureword">Google Play</a>
+        <a class="btn play" href="https://play.google.com/store/apps/details?id=com.orcastudios.pureword">Google Play</a>
         <a class="plink" href="https://sites.google.com/view/pureword-privacy">Privacy policy</a>
       </div>
-    </div>
+    </article>
 
-    <div class="card">
-      <div class="badge" style="background:#33202b; color:#EC407A;">S</div>
+    <article class="card">
+      <div class="top">
+        <div class="icon" style="background:linear-gradient(135deg,#b8860b,#FBC02D);">E</div>
+        <span class="pill live">Live</span>
+      </div>
+      <h3>Emojhang: Mahjong Emoji Tiles</h3>
+      <p>A playful emoji tile puzzle that keeps your brain smiling. Match pairs of identical tiles to clear beautifully stacked boards - easy to learn, satisfying to master.</p>
+      <div class="row">
+        <a class="btn play" href="https://play.google.com/store/apps/details?id=com.orcastudios.emojhang">Google Play</a>
+        <a class="plink" href="https://sites.google.com/view/emojhangprivacy">Privacy policy</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="top">
+        <div class="icon" style="background:linear-gradient(135deg,#8e1f4b,#EC407A);">S</div>
+        <span class="pill review">In review</span>
+      </div>
       <h3>Sugar Crush: Sweet Saga Candy</h3>
-      <p>A sweet candy puzzle saga packed with colourful treats. Currently
-      in testing - launching soon on Google Play.</p>
+      <p>A sweet candy puzzle saga packed with colourful treats and hundreds of levels. Currently in Google Play review - launching soon.</p>
       <div class="row">
         <span class="soon">Coming soon</span>
         <a class="plink" href="https://sites.google.com/view/privacysugarcrush">Privacy policy</a>
       </div>
-    </div>
+    </article>
 
-    <div class="card">
-      <div class="badge" style="background:#332e1c; color:#FBC02D;">E</div>
-      <h3>Emojhang: Mahjong Emoji Tiles</h3>
-      <p>A playful emoji tile puzzle that keeps your brain smiling.
-      Match pairs of identical emoji tiles to clear beautifully stacked boards. Easy to learn in seconds, endlessly satisfying to master </p>
-      <div class="row">
-         <a class="btn" href="https://play.google.com/store/apps/details?id=com.orcastudios.emojhang&pcampaignid=web_share">Google Play</a>
-        <a class="plink" href="https://sites.google.com/view/emojhangprivacy">Privacy policy</a>
+    <article class="card">
+      <div class="top">
+        <div class="icon" style="background:linear-gradient(135deg,#114c58,#2a9d8f);">A</div>
+        <span class="pill testing">Closed testing</span>
       </div>
-    </div>
+      <h3>Aero Scan: PDF Scanner and Editor</h3>
+      <p>Scan documents to PDF with automatic edge detection, enhance pages, extract text with built-in OCR, and merge, edit or protect PDFs. Your documents stay on your phone.</p>
+      <div class="row">
+        <a class="btn play" href="https://play.google.com/store/apps/details?id=com.orcastudios.aeroscan">Google Play</a>
+        <a class="plink" href="https://sites.google.com/view/aeroscan">Privacy policy</a>
+      </div>
+    </article>
 
   </div>
-</div>
+</section>
 
-<footer>
-  &copy; 2026 Orca Studios &middot; All games are free to play<br>
-  Support: see the contact details on each game's Google Play listing
+<section class="section" id="about">
+  <h2>About</h2>
+  <p class="sub">Small team, clear principles.</p>
+  <div class="values">
+    <div class="value"><b>Free for everyone</b><span>All our apps are free to download and use, supported by ads.</span></div>
+    <div class="value"><b>Privacy first</b><span>No accounts, no sign-ups. Your data stays on your device unless you choose to share it.</span></div>
+    <div class="value"><b>Made in India</b><span>Designed and built in India for players and users everywhere.</span></div>
+    <div class="value"><b>Built to last</b><span>Regular updates, quick fixes and a support inbox that is actually read.</span></div>
+  </div>
+</section>
+
+<footer id="contact">
+  &copy; 2026 Orca Studios &middot; All apps are free to use<br>
+  Support &amp; business: <a href="mailto:kaushikmouryaprof@gmail.com">kaushikmouryaprof@gmail.com</a><br>
+  Privacy policies: <a href="https://sites.google.com/view/pureword-privacy">PureWord</a> &middot; <a href="https://sites.google.com/view/emojhangprivacy">Emojhang</a> &middot; <a href="https://sites.google.com/view/privacysugarcrush">Sugar Crush</a> &middot; <a href="https://sites.google.com/view/aeroscan">Aero Scan</a>
 </footer>
 
 </body>
